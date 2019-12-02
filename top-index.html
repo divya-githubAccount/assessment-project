@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Top Rated Movies</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style-home.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <header>
+  <ul>
+    <li id="p1">MOTION CINEMA</li>
+  <li><a href="upcoming-index.html" target="_self">UPCOMING</a></li>
+
+  <li><a href="top-index.html" target="_self">TOP-RATED</a></li>
+
+  <li><a href="index-people.html" target="_self">PEOPLE</a></li>
+    <li><a href="discover.html" target="_self">DISCOVER</a></li>
+</ul>
+</header>
+  <h1 align="center"><font color="red">TOP </font><font color="blue">RATED </font><font color="yellow">MOVIES</font></h1>
+<table>
+<tr><td><div class="container">
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="pic1.jpg" alt="Card image" height=500px width=500px>
+    <div class="card-body">
+      <h4 class="card-title" id="zero"></h4>
+
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+</div></td>
+<br>
+<td><div class="container">
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="pic2.jpg" alt="Card image" style="width:100%" height=500px width=500px>
+    <div class="card-body">
+      <h4 class="card-title" id="one"></h4>
+
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+</div></td></tr>
+<tr><td><div class="container">
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="pic3.jpg" alt="Card image" style="width:100%"  height=500px width=500px>
+    <div class="card-body">
+      <h4 class="card-title" id="two"></h4>
+
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+</div></td>
+<td><div class="container">
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src="pic4.jpg" alt="Card image" style="width:100%" height=500px width=500px>
+    <div class="card-body">
+      <h4 class="card-title" id="three"></h4>
+
+      <a href="#" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+</div></td></tr>
+</<table>
+</body>
+<script>
+var url="https://api.themoviedb.org/3/movie/top_rated?api_key=f29c80c39ceace2ef3f36ad59c1fd7e3&language=en-US&page=1"
+var xhr=new XMLHttpRequest()
+xhr.open('GET',url)
+xhr.onreadystatechange = test
+function test()
+{
+  if(this.status==200 && this.readyState==4)
+  {
+  var res_data= JSON.parse(xhr.responseText)
+  console.log(res_data)
+  var img_url = res_data.results[0].original_title
+  var vote_c = res_data.results[0].vote_count
+  var over_1 = res_data.results[0].overview
+  var rel1= res_data.results[0].release_date
+  var get_tag=document.getElementById('zero')
+  get_tag.innerHTML=img_url+'<br>'+'Vote Count : ' +vote_c+'<br>'+'Release Date : '+rel1
+  var a=document.getElementsByClassName('btn btn-primary')
+  a[0].addEventListener('click',function(){
+    alert('Overview:-'+over_1)
+  })
+  var img_url1 = res_data.results[1].original_title
+    var vote_c1 = res_data.results[1].vote_count
+    var over_11 = res_data.results[1].overview
+      var rel2= res_data.results[1].release_date
+  var get_tag1=document.getElementById('one')
+  get_tag1.innerHTML=img_url1+'<br>'+'Vote Count : ' +vote_c1+'<br>'+'Release Date : '+rel2
+  var a1=document.getElementsByClassName('btn btn-primary')
+  a1[1].addEventListener('click',function(){
+    alert('Overview:-'+res_data.results[1].overview)
+  })
+  var img_url2 = res_data.results[2].original_title
+    var vote_c2 = res_data.results[2].vote_count
+      var rel3= res_data.results[2].release_date
+  var get_tag2=document.getElementById('two')
+  get_tag2.innerHTML=img_url2+'<br>'+'Vote Count : ' +vote_c2+'<br>'+'Release Date : '+rel3
+  a[2].addEventListener('click',function(){
+    alert('Overview:-'+res_data.results[2].overview)
+  })
+  var img_url3 = res_data.results[3].original_title
+    var vote_c3 = res_data.results[3].vote_count
+      var rel4= res_data.results[3].release_date
+  var get_tag3=document.getElementById('three')
+  get_tag3.innerHTML=img_url3+'<br>'+'Vote Count : ' +vote_c3+'<br>'+'Release Date : '+rel4
+  a[3].addEventListener('click',function(){
+    alert('Overview:-'+res_data.results[3].overview)
+  })
+
+}
+}
+
+
+xhr.send();
+
+</script>
+</html>

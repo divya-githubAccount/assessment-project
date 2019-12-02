@@ -1,0 +1,44 @@
+td{
+  padding:150px;
+  background-image:url("bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-img-top{
+  border-radius:20%;
+}
+body
+{
+  background-color: black;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+#p1{
+  color: deeppink;
+  padding: 14px 16px;
+  float: left;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+li {
+
+  float: right;
+}
+
+li a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: sans-serif;
+}
+
+li a:hover{
+  background-color: grey;
+}
